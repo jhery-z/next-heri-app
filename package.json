@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "bulma": "^0.9.4",
     "next": "12.2.5",
