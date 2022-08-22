@@ -3,7 +3,8 @@ import axios from "axios";
 const axiosConfig = {
     baseURL: 'https://api.github.com/',
     auth: {
-        username:process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
+        username:process.env.GITHUB_CLIENT_ID,
+        username:process.env.GITHUB_CLIENT_SECRET
     }
 };
 

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Search from '../components/search';
 import { searchRepos } from '../services/githubService';
+import RepoList from '../components/repo-list';
 
 
 const index = (props) => {
@@ -40,7 +41,7 @@ const index = (props) => {
       onSearchTextChange={onSearchTextChange}
       onLanguageChange={onLanguageChange}
       />
-      {loading ? 'Loading...' : <div>{JSON.stringify(repos, null, 2)}</div>}
+      <RepoList loading={loading} repos={repos} />
     </div>
   );
 };
