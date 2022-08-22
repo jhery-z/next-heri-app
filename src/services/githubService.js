@@ -19,10 +19,7 @@ const axiosConfig = {
 function searchRepos(searchText, language) {
     const query = language ? '${searchText}+language:${language}' : searchText;
 
-    return axiosGetCancellable(
-        'search/repositories?q=${query}&sort=stars&order=desc',
-    axiosConfig
-    );
+    return axiosGetCancellable('api/search?q=${query}&sort=stars&order=desc');
 }
 
 export {searchRepos};
