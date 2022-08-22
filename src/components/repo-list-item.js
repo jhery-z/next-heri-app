@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
 const RepoListItem = ({repo}) => {
   return (
     <div>
-      <link href="/repo/[id]" as={'/repo/${repo.id}'}>
+      <Link href="/repo/[id]" as={'/repo/${repo.id}'}>
         <a>{repo.name}</a>
-      </link>
+      </Link>
       <p>{repo.description}</p>
     </div>
   )
