@@ -13,7 +13,7 @@ const index = (props) => {
 
   const onSearchTextChange = (text) => {
     setSearchText(text);
-    if(tet){
+    if(text){
       loadRepos(text, language);
     }
   };
@@ -26,8 +26,10 @@ const index = (props) => {
   const loadRepos = async(searchText, Language) => {
     setLoading(true);
     const res = await searchRepos(searchText, language);
-    setLoading(false);
-    setRepos(res.data.items);
+    if (res && res.data) {
+      setLoading(false);
+      setRepos(res.data.items);
+    }
   }
 
   return (
