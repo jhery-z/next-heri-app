@@ -13,7 +13,9 @@ const index = (props) => {
 
   const onSearchTextChange = (text) => {
     setSearchText(text);
-    loadRepos(text, language);
+    if(tet){
+      loadRepos(text, language);
+    }
   };
 
   const onLanguageChange = (Language) => {
