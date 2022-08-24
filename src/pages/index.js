@@ -37,7 +37,7 @@ const Index = (props) => {
 
   return (
     <div className={styles.container}>
-      <img className={styles.logo} src="/img/study.svg"/>
+      <Image className={styles.logo} src="/img/study.svg"/>
       <Search
         searchText={searchText}
         language={language}

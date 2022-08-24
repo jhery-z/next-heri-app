@@ -4,7 +4,7 @@ import styles from './repo-list.module.scss';
 
 const RepoList = ({ repos, loading }) => {
   if (loading) {
-    return <img src="/img/loader.gif" className={styles.loader} />;
+    return <Image src="/img/loader.gif" className={styles.loader} />;
   }
 
   if (!repos || repos.length === 0) {
