@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const RepoList = ({ repos, loading }) => {
   if (loading) {
-    return <Image src="/img/loader.gif" className={styles.loader} alt="loading"/>;
+    return <Image src="/img/loader.gif" className={styles.loader} alt="loading" width="450" height="400"/>;
   }
 
   if (!repos || repos.length === 0) {
