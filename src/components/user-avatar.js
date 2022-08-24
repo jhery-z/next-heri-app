@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './user-avatar.module.scss';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const UserAvatar = ({ user }) => {
   return (
     <div className={styles.user}>
       <figure className={`${styles.avatar} image`}>
-        <Image className="is-rounded" src={user.avatar_url} alt="avatar" />
+        <img className="is-rounded" src={user.avatar_url} alt="avatar" width="50" height="50"/>
       </figure>
       <div className={styles.userLink}>
         <Link href="/profile/[id]" as={`/profile/${user.login}`}>
