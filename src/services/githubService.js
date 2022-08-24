@@ -1,25 +1,38 @@
-import axios from 'axios'
+import axios from 'axios';
 import { axiosGetCancellable } from '../helpers/axios.helper';
 
 const axiosConfig = {
-    baseURL: 'https://api.github.com/',
-    auth: {
-        username:process.env.GITHUB_CLIENT_ID,
-        password:process.env.GITHUB_CLIENT_SECRET
-    }
-//     baseURL: "https://api.github.com/users/nama-akun/repos",
-//     jsonp: true,
-//     method: "GET",
-//     dataType: "json",
-//     success: function(res) {
-//     console.log(res)
-//   }
+  baseURL: 'https://api.github.com/',
+  // baseURL: 'https://api.github.com/users/jhery-z/repos',
+  auth: {
+    username: process.env.GITHUB_CLIENT_ID,
+    password: process.env.GITHUB_CLIENT_SECRET
+  }
 };
 
 function searchRepos(searchText, language) {
-    const query = language ? '${searchText}+language:${language}' : searchText;
+  const query = language ? `${searchText}+language:${language}` : searchText;
 
-    return axiosGetCancellable('api/search?q=${query}&sort=stars&order=desc');
+  if (isServer()) {
+    return axios.get(
+      `search/repositories?q=${query}&sort=stars&order=desc`,
+      axiosConfig
+    );
+  }
+
+  return axiosGetCancellable(`api/search?q=${query}&sort=stars&order=desc`);
 }
 
-export {searchRepos};
+function getRepo(id) {
+  return axios.get(`repositories/${id}`, axiosConfig);
+}
+
+function getProfile(username) {
+  return axios.get(`users/${username}`, axiosConfig);
+}
+
+function isServer() {
+  return typeof window === 'undefined';
+}
+
+export { searchRepos, getRepo, getProfile };
