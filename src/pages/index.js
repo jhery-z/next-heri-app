@@ -6,6 +6,7 @@ import { searchRepos } from '../services/githubService';
 import RepoList from '../components/repo-list';
 import { getRandomWord } from '../helpers/randomWorld.helper';
 import styles from './index.module.scss';
+import Image from 'next/image';
 
 
 const Index = (props) => {

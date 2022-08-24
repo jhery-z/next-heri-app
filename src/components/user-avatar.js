@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './user-avatar.module.scss';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const UserAvatar = ({ user }) => {
   return (
